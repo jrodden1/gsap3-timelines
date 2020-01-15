@@ -21,4 +21,9 @@ You need a container --> Enter Timelines
 
 gsap.timeline()
    .from("#demo", {duration: 1, opacity:0}) //fades in the background
-   .from("#title", {opacity:0, scale:0, ease:"back"})
+   .from("#title", {opacity:0, scale:0, ease:"back"}) // fades in the title "meet the freds" from being invisble and tiny to being full size and visble with a "back" ease.
+   // Also note these tweens will be run in SEQUENTIAL order - one after the other
+   .from("#freds img", {y:160, stagger:0.1, duration:0.8, ease:"back"})  //within the element that has the freds id, select all the img tags
+   .from("#time", {xPercent:100, duration: 0.2}) //slides the element in from the right side - using xPercent is a great way to push stuff off screen
+
+// In the next section we'll talk about the Position parameter that will allow tweens within a timeline to overlap
