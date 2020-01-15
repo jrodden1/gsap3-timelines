@@ -8,7 +8,7 @@ body {
   height: 100vh;
 }
 #demo {
-  overflow:hidden;
+  overflow:hidden; 
   position:relative;
   width:800px;
   height:410px;
@@ -16,7 +16,8 @@ body {
   background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/32887/space-background.png);
 
 }
-
+/* Note for #demo -- if you delete out "overflow:hidden" then it will show you 
+where the elements are "off screen" in a Adobe Premiere / AE style */
 #title {
   position:absolute;
   top:120px;
