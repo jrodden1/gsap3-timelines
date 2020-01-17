@@ -51,3 +51,7 @@ let animation = gsap.timeline()
    .from("#freds img", {y:160, stagger:0.1, duration:0.8, ease:"back"}, "+=0.5")  //within the element that has the freds id, select all the img tags - using position param to add extra 0.5s to the relative position to when the tween was supposed to start (delay by .5 sec after previous tween)
    .from("#time", {xPercent:100, duration: 0.2}, "<") //slides the element in from the right side - using xPercent is a great way to push stuff off screen - and use position parameter of "<" to bind the last animation to always start at the same time as the previous tween
 
+document.getElementById("play").onclick = ()=> animation.play();
+document.getElementById("pause").onclick = ()=> animation.pause();
+document.getElementById("reverse").onclick = ()=> animation.reverse();
+document.getElementById("restart").onclick = ()=> animation.restart();
