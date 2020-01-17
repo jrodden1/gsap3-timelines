@@ -44,9 +44,10 @@ comes after the options object
    Now we're going to put this into practice with the "freds" example below
 */
 
-gsap.timeline()
+let animation = gsap.timeline()
    .from("#demo", {duration: 1, opacity:0}) //fades in the background
    .from("#title", {opacity:0, scale:0, ease:"back"}, 0.5) // fades in the title "meet the freds" from being invisble and tiny to being full size and visble with a "back" ease. - utilized absolute position param of "0.5"
    // Also note these tweens will be run in SEQUENTIAL order - one after the other
    .from("#freds img", {y:160, stagger:0.1, duration:0.8, ease:"back"}, "+=0.5")  //within the element that has the freds id, select all the img tags - using position param to add extra 0.5s to the relative position to when the tween was supposed to start (delay by .5 sec after previous tween)
    .from("#time", {xPercent:100, duration: 0.2}, "<") //slides the element in from the right side - using xPercent is a great way to push stuff off screen - and use position parameter of "<" to bind the last animation to always start at the same time as the previous tween
+
