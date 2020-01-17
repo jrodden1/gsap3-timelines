@@ -49,9 +49,17 @@ let animation = gsap.timeline()
    .from("#title", {opacity:0, scale:0, ease:"back"}, 0.5) // fades in the title "meet the freds" from being invisble and tiny to being full size and visble with a "back" ease. - utilized absolute position param of "0.5"
    // Also note these tweens will be run in SEQUENTIAL order - one after the other
    .from("#freds img", {y:160, stagger:0.1, duration:0.8, ease:"back"}, "+=0.5")  //within the element that has the freds id, select all the img tags - using position param to add extra 0.5s to the relative position to when the tween was supposed to start (delay by .5 sec after previous tween)
-   .from("#time", {xPercent:100, duration: 0.2}, "<") //slides the element in from the right side - using xPercent is a great way to push stuff off screen - and use position parameter of "<" to bind the last animation to always start at the same time as the previous tween
+   .add("last-animation")  //this is a label.  If you associate this label with an event listener on a button, it allows you to skip straight to where this label is in the timeline.
+   .from("#time", {xPercent:100, duration: 5}, "<") //slides the element in from the right side - using xPercent is a great way to push stuff off screen - and use position parameter of "<" to bind the last animation to always start at the same time as the previous tween
+   // duration was changed to 5 seconds on the above line to illustrate how the "last animation" button works.  
 
 document.getElementById("play").onclick = ()=> animation.play();
 document.getElementById("pause").onclick = ()=> animation.pause();
 document.getElementById("reverse").onclick = ()=> animation.reverse();
 document.getElementById("restart").onclick = ()=> animation.restart();
+
+// This enables the "last animation" button to jump directly to the last part of the animation so you don't have to wait until the end to see it. 
+document.getElementById("last-animation").onclick = ()=> animation.play("last-animation");
+
+
+// animation.play("last-animation") // allows jumping straight to the last animation -- skips directly to the "last-animation" label (.add("last-animation")) -- super huge time saver
